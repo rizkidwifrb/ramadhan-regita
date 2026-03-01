@@ -3,28 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ramadhan Regita</title>
+<title>Ramadhan Untuk Regita</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<audio autoplay loop id="music">
+<audio id="music" loop>
 <source src="assets/music.mp3">
 </audio>
 
-<div class="stars"></div>
+<!-- SPACE -->
+<canvas id="space"></canvas>
 <div class="moon"></div>
 
 <!-- SCENE 1 -->
 <section class="scene active">
-<h1 class="fade">Selamat Datang Ramadhan</h1>
+
+<h1 class="title">Selamat Datang Ramadhan</h1>
 <h2>Untuk Regita Septiana Andini</h2>
-<button onclick="next()">Open</button>
+
+<button class="openBtn" onclick="openLetter()">
+OPEN
+</button>
+
 </section>
 
 <!-- SCENE 2 -->
 <section class="scene">
+
 <div class="letter">
 <p id="typing"></p>
 </div>
@@ -33,12 +40,13 @@
 <button onclick="prev()">Kembali</button>
 <button onclick="next()">Lanjut</button>
 </div>
+
 </section>
 
 <!-- SCENE 3 -->
 <section class="scene">
 
-<img id="slider" class="photo">
+<img id="slider">
 
 <video autoplay muted loop>
 <source src="assets/video.mp4">
@@ -54,7 +62,7 @@
 <!-- SCENE 4 -->
 <section class="scene ending">
 <h1>Selamat Berpuasa</h1>
-<p>(maaf ya telat, aku buat ini 2 mingguan soalnya hehe)</p>
+<p>maaf ya telat, aku buat ini hampir 2 mingguan hehe 🤍</p>
 </section>
 
 <script src="script.js"></script>

@@ -6,6 +6,39 @@ color:white;
 font-family:serif;
 }
 
+/* BACKGROUND FIX */
+#space,
+.moon{
+pointer-events:none;
+position:fixed;
+}
+
+/* CANVAS */
+#space{
+width:100%;
+height:100%;
+z-index:0;
+}
+
+/* MOON */
+.moon{
+right:80px;
+top:60px;
+width:140px;
+height:140px;
+border-radius:50%;
+background:radial-gradient(circle,#fff,#bbb,#333);
+box-shadow:
+0 0 60px white,
+0 0 150px rgba(255,255,255,.5);
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-15px);}
+}
+
+/* SCENE */
 .scene{
 position:absolute;
 width:100%;
@@ -16,21 +49,38 @@ justify-content:center;
 align-items:center;
 opacity:0;
 transition:1.5s;
+z-index:2;
 }
 
 .scene.active{
 opacity:1;
 }
 
-button{
-padding:12px 25px;
-margin-top:20px;
+/* BUTTON */
+.openBtn{
+margin-top:25px;
+padding:15px 40px;
+font-size:18px;
+background:white;
 border:none;
-border-radius:10px;
-background:gold;
+border-radius:30px;
 cursor:pointer;
+transition:.3s;
 }
 
+.openBtn:hover{
+transform:scale(1.1);
+}
+
+/* LETTER */
+.letter{
+max-width:650px;
+font-size:22px;
+text-align:center;
+line-height:1.8;
+}
+
+/* NAV */
 .nav{
 position:absolute;
 bottom:40px;
@@ -39,49 +89,14 @@ display:flex;
 justify-content:space-between;
 }
 
-.moon{
-position:absolute;
-right:80px;
-top:60px;
-width:120px;
-height:120px;
-background:white;
-border-radius:50%;
-box-shadow:0 0 80px white;
-}
-
-.stars{
-position:absolute;
-width:100%;
-height:100%;
-background:url("https://www.transparenttextures.com/patterns/stardust.png");
-animation:moveStars 60s linear infinite;
-}
-
-@keyframes moveStars{
-from{background-position:0 0;}
-to{background-position:0 1000px;}
-}
-
-.letter{
-max-width:600px;
-font-size:22px;
-line-height:1.7;
-text-align:center;
-}
-
-.photo{
-width:320px;
+/* MEDIA */
+#slider,video{
+width:340px;
 border-radius:12px;
-margin-bottom:20px;
-}
-
-video{
-width:320px;
-border-radius:12px;
+margin:10px;
 }
 
 .ending h1{
-font-size:60px;
-font-weight:bold;
+font-size:65px;
+text-shadow:0 0 30px white;
 }
