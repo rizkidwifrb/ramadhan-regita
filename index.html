@@ -1,83 +1,62 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Untuk Regita 🌙</title>
-
-<link rel="stylesheet" href="style.css?v=2">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ramadhan Regita</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- LOADING -->
-<div id="loader">
-<h1>Memutar Kenangan...</h1>
-</div>
-
-<!-- MUSIC -->
-<audio autoplay loop>
+<audio autoplay loop id="music">
 <source src="assets/music.mp3">
 </audio>
 
-<!-- EFFECT CAHAYA -->
-<div class="light-container"></div>
+<div class="stars"></div>
+<div class="moon"></div>
 
-<!-- HERO -->
-<section class="hero">
-<h1>Selamat Datang Ramadhan</h1>
-<h2 class="typing">Untuk Regita Septiana Andini</h2>
+<!-- SCENE 1 -->
+<section class="scene active">
+<h1 class="fade">Selamat Datang Ramadhan</h1>
+<h2>Untuk Regita Septiana Andini</h2>
+<button onclick="next()">Open</button>
 </section>
 
-<!-- COUNTDOWN -->
-<section class="countdown">
-<h2>Menuju Ramadhan</h2>
-<div id="timer"></div>
+<!-- SCENE 2 -->
+<section class="scene">
+<div class="letter">
+<p id="typing"></p>
+</div>
+
+<div class="nav">
+<button onclick="prev()">Kembali</button>
+<button onclick="next()">Lanjut</button>
+</div>
 </section>
 
-<!-- STORY -->
-<section class="story">
+<!-- SCENE 3 -->
+<section class="scene">
 
-<p>
-Di antara semua cerita yang pernah hadir,
-kamu adalah bagian yang tetap tinggal
-meski waktu terus berjalan.
-</p>
+<img id="slider" class="photo">
 
-<p>
-Ramadhan selalu membawa tenang,
-dan tanpa sadar,
-namamu selalu ikut dalam doa-doaku.
-</p>
-
-<p>
-Bukan untuk kembali,
-hanya berharap kamu selalu bahagia,
-di mana pun sekarang kamu berada.
-</p>
-
-</section>
-
-<!-- GALERI AUTO -->
-<section class="gallery">
-<h2>Kenangan Kita</h2>
-<div class="slider" id="gallery"></div>
-</section>
-
-<!-- VIDEO -->
-<section class="video">
-<h2>Satu Kenangan</h2>
-
-<video autoplay muted loop controls>
+<video autoplay muted loop>
 <source src="assets/video.mp4">
 </video>
 
+<div class="nav">
+<button onclick="prev()">Kembali</button>
+<button onclick="next()">Lanjut</button>
+</div>
+
+</section>
+
+<!-- SCENE 4 -->
+<section class="scene ending">
+<h1>Selamat Berpuasa</h1>
+<p>(maaf ya telat, aku buat ini 2 mingguan soalnya hehe)</p>
 </section>
 
 <script src="script.js"></script>
-
 </body>
 </html>
