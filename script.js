@@ -1,69 +1,37 @@
-/* MUSIC AUTOPLAY SAFE */
-document.body.addEventListener("click",()=>{
-document.getElementById("music").play();
-},{once:true});
+/* LOVE GENERATOR */
+function createLove(){
+  const love = document.createElement("div");
+  love.classList.add("love");
+  love.innerHTML = "🤍";
 
-/* SCROLL REVEAL */
-const reveals=document.querySelectorAll(".reveal");
+  love.style.left = Math.random()*100+"vw";
+  love.style.fontSize = (15+Math.random()*25)+"px";
 
-function reveal(){
-reveals.forEach(el=>{
-const top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-el.classList.add("active");
-}
-});
-}
+  document.body.appendChild(love);
 
-window.addEventListener("scroll",reveal);
-reveal();
-
-/* STARS */
-const canvas=document.getElementById("stars");
-const ctx=canvas.getContext("2d");
-
-canvas.width=innerWidth;
-canvas.height=innerHeight;
-
-let stars=[];
-for(let i=0;i<150;i++){
-stars.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-s:Math.random()*2
-});
+  setTimeout(()=>{
+    love.remove();
+  },6000);
 }
 
-function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
+setInterval(createLove,800);
 
-stars.forEach(star=>{
-ctx.fillStyle="white";
-ctx.fillRect(star.x,star.y,star.s,star.s);
-star.y+=0.2;
-if(star.y>canvas.height)star.y=0;
+
+/* SCROLL FADE EFFECT */
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight-100){
+      sec.style.opacity = 1;
+      sec.style.transform = "translateY(0)";
+    }
+  });
 });
 
-requestAnimationFrame(animate);
-}
-animate();
-
-/* LOVE FALL */
-setInterval(()=>{
-let love=document.createElement("div");
-love.innerHTML="🤍";
-love.style.position="fixed";
-love.style.left=Math.random()*100+"%";
-love.style.top="-20px";
-love.style.animation="fall 6s linear";
-document.body.appendChild(love);
-
-setTimeout(()=>love.remove(),6000);
-},800);
-
-const style=document.createElement("style");
-style.innerHTML=`
-@keyframes fall{
-to{transform:translateY(110vh);opacity:0;}
-}`;
-document.head.appendChild(style);
+sections.forEach(sec=>{
+  sec.style.opacity=0;
+  sec.style.transform="translateY(60px)";
+  sec.style.transition="1s";
+});

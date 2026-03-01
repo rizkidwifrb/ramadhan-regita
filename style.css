@@ -1,101 +1,163 @@
-body{
+*{
 margin:0;
-background:#020617;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+background:#020b2b;
 color:white;
-font-family:serif;
 overflow-x:hidden;
 }
 
 /* SECTION */
 .section{
-min-height:100vh;
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:40px;
+padding:20px;
 }
 
 /* MOON */
 .moon{
 position:fixed;
-top:80px;
+top:60px;
 right:80px;
 width:150px;
 height:150px;
+background:white;
 border-radius:50%;
-background:radial-gradient(circle,#fff,#aaa,#333);
-box-shadow:
-0 0 80px white,
-0 0 200px rgba(255,255,255,.5);
-animation:float 6s infinite ease-in-out;
-pointer-events:none;
+box-shadow:0 0 80px white;
+z-index:-1;
 }
 
-@keyframes float{
-50%{transform:translateY(-20px);}
+/* STARS */
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moveStars 60s linear infinite;
+z-index:-2;
+}
+
+@keyframes moveStars{
+from{background-position:0 0;}
+to{background-position:1000px 1000px;}
+}
+
+/* HERO */
+.hero h1{
+font-size:3em;
+margin-bottom:10px;
+}
+
+.hero h2{
+opacity:.8;
 }
 
 /* SCROLL TEXT */
 .scroll-indicator{
-position:fixed;
-bottom:30px;
-left:50%;
-transform:translateX(-50%);
-animation:scrollAnim 2s infinite;
+margin-top:40px;
+animation:float 2s infinite;
 opacity:.7;
 }
 
-@keyframes scrollAnim{
-50%{transform:translate(-50%,10px);}
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(10px);}
 }
 
-/* LETTER */
-.letter{
-max-width:700px;
-font-size:22px;
-line-height:1.8;
+/* CARD */
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:20px;
+max-width:600px;
+line-height:1.7;
 }
 
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+/* MEDIA */
+.media{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin:20px;
 }
 
-.gallery img{
-width:100%;
-border-radius:12px;
-transform:scale(.9);
-transition:1s;
+.media img{
+width:250px;
+border-radius:15px;
+transition:.4s;
 }
 
-.gallery img:hover{
-transform:scale(1);
+.media img:hover{
+transform:scale(1.05);
 }
 
-/* VIDEO */
 video{
-width:80%;
+margin-top:20px;
+width:400px;
 border-radius:15px;
 }
 
-/* END */
+/* ENDING */
 .ending h1{
-font-size:60px;
-text-shadow:0 0 30px white;
+font-size:4em;
+font-weight:bold;
 }
 
-/* REVEAL */
-.reveal{
-opacity:0;
-transform:translateY(80px);
-transition:1.2s;
+.ending p{
+opacity:.8;
+margin-top:15px;
 }
 
-.reveal.active{
+/* ORNAMENT STAR */
+.star{
+width:20px;
+height:20px;
+background:gold;
+clip-path:polygon(
+50% 0%,61% 35%,98% 35%,
+68% 57%,79% 91%,
+50% 70%,21% 91%,
+32% 57%,2% 35%,
+39% 35%
+);
+position:absolute;
+top:-50px;
+animation:drop 8s linear infinite;
+}
+
+.star:nth-child(2){left:40%;}
+.star:nth-child(3){left:70%;}
+
+@keyframes drop{
+0%{transform:translateY(-50px);}
+100%{transform:translateY(120vh);}
+}
+
+/* LOVE FLOAT */
+.love{
+position:fixed;
+color:white;
+font-size:20px;
+animation:loveUp 6s linear forwards;
+}
+
+@keyframes loveUp{
+from{
+transform:translateY(100vh);
 opacity:1;
-transform:translateY(0);
+}
+to{
+transform:translateY(-10vh);
+opacity:0;
+}
 }

@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ramadhan Untuk Regita</title>
 
 <link rel="stylesheet" href="style.css">
@@ -10,60 +10,64 @@
 
 <body>
 
-<audio id="music" loop>
-<source src="assets/music.mp3">
-</audio>
-
-<canvas id="stars"></canvas>
+<!-- BACKGROUND -->
+<div class="stars"></div>
 <div class="moon"></div>
 
-<div class="scroll-indicator">
-Scroll ↓
+<!-- ORNAMEN -->
+<div class="ornaments">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
 </div>
 
-<!-- HERO -->
-<section class="section hero reveal">
-<h1>Selamat Datang Ramadhan</h1>
-<h2>Untuk Regita Septiana Andini</h2>
+<!-- LOVE FLOAT -->
+<div class="love-container"></div>
+
+<!-- SECTION 1 -->
+<section class="section hero">
+  <h1>Selamat Datang Ramadhan</h1>
+  <h2>Untuk Regita Septiana Andini</h2>
+
+  <div class="scroll-indicator">
+    Scroll Kebawah ↓
+  </div>
 </section>
 
-<!-- LETTER -->
-<section class="section reveal">
-<div class="letter">
-<p>
-Selamat menunaikan ibadah Ramadhan.
-
-Semoga semua lelahmu diganti tenang,
-semua sedihmu diganti bahagia,
-dan setiap doa yang kamu simpan diam-diam,
-Allah kabulkan satu per satu.
-
-Terima kasih pernah hadir
-di banyak cerita hidupku.
-</p>
-</div>
+<!-- SECTION 2 -->
+<section class="section message">
+  <div class="card">
+    <p>
+      Selamat menunaikan ibadah Ramadhan 🌙<br><br>
+      Semoga harimu selalu dipenuhi ketenangan,
+      kebahagiaan, dan keberkahan di setiap langkah.
+      <br><br>
+      Maaf untuk semua masa lalu,
+      semoga Ramadhan ini membawa
+      awal yang lebih indah.
+    </p>
+  </div>
 </section>
 
-<!-- GALERI -->
-<section class="section gallery reveal">
-<img src="assets/foto (1).jpg">
-<img src="assets/foto (2).jpg">
-<img src="assets/foto (3).jpg">
-<img src="assets/foto (4).jpg">
-<img src="assets/foto (5).jpg">
+<!-- SECTION 3 -->
+<section class="section gallery">
+  <h1>Kenangan Kita</h1>
+
+  <div class="media">
+    <img src="assets/image (1).jpg">
+    <img src="assets/image (2).jpg">
+    <img src="assets/image (3).jpg">
+  </div>
+
+  <video controls>
+    <source src="assets/video.mp4" type="video/mp4">
+  </video>
 </section>
 
-<!-- VIDEO -->
-<section class="section reveal">
-<video controls>
-<source src="assets/video.mp4">
-</video>
-</section>
-
-<!-- END -->
-<section class="section ending reveal">
-<h1>Selamat Berpuasa 🤍</h1>
-<p>maaf ya telat, aku buat ini hampir 2 mingguan hehe</p>
+<!-- SECTION 4 -->
+<section class="section ending">
+  <h1>Selamat Berpuasa 🤍</h1>
+  <p>(maaf ya telat, aku buat ini 2 mingguan soalnya hehe)</p>
 </section>
 
 <script src="script.js"></script>
