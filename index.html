@@ -1,97 +1,259 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Ramadhan Untuk Regita</title>
 
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+GLOBAL RESET — MOBILE SAFE
+===================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+text-align:center;
+}
+
+html,body{
+width:100%;
+overflow-x:hidden;
+background:#020617;
+color:white;
+scroll-behavior:smooth;
+}
+
+/* =====================================================
+CENTER ENGINE (ANTI RATA KIRI)
+===================================================== */
+
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+width:100%;
+}
+
+/* =====================================================
+LOADER CINEMA
+===================================================== */
+
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+transition:1.5s;
+}
+
+#loader.hide{
+opacity:0;
+pointer-events:none;
+}
+
+/* =====================================================
+SPACE BACKGROUND
+===================================================== */
+
+#universe{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-10;
+overflow:hidden;
+}
+
+/* STAR CANVAS */
+
+canvas{
+position:absolute;
+top:0;
+left:0;
+}
+
+/* =====================================================
+3D MOON
+===================================================== */
+
+#moon{
+position:absolute;
+top:10%;
+right:8%;
+width:150px;
+height:150px;
+border-radius:50%;
+background:
+radial-gradient(circle at 30% 30%,
+#fff,#ddd,#aaa);
+box-shadow:
+0 0 60px white,
+0 0 120px rgba(255,255,255,.3);
+}
+
+/* =====================================================
+TITLE
+===================================================== */
+
+h1{
+font-size:2.5rem;
+font-weight:700;
+}
+
+p{
+max-width:700px;
+line-height:1.8;
+margin-top:20px;
+}
+
+/* =====================================================
+SCROLL INDICATOR
+===================================================== */
+
+.scroll{
+margin-top:60px;
+animation:bounce 2s infinite;
+opacity:.7;
+}
+
+@keyframes bounce{
+50%{transform:translateY(10px);}
+}
+
+/* =====================================================
+GLASS CARD
+===================================================== */
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+border-radius:20px;
+padding:40px;
+width:100%;
+max-width:700px;
+}
+
+/* =====================================================
+SLIDER
+===================================================== */
+
+.slider{
+position:relative;
+width:95%;
+max-width:800px;
+height:420px;
+overflow:hidden;
+border-radius:20px;
+}
+
+.slider img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:1.5s;
+}
+
+.slider img.active{
+opacity:1;
+transform:scale(1);
+}
+
+/* =====================================================
+ENDING
+===================================================== */
+
+.big{
+font-size:3rem;
+font-weight:700;
+text-shadow:0 0 30px white;
+}
+
+/* =====================================================
+MOBILE FIX
+===================================================== */
+
+@media(max-width:768px){
+
+h1{font-size:1.8rem;}
+.big{font-size:2rem;}
+
+#moon{
+width:100px;
+height:100px;
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<!-- ======================
-GLOBAL CINEMA BACKGROUND
-====================== -->
+<!-- ================= LOADER ================= -->
 
-<div id="space">
-<div id="stars-layer"></div>
-<div id="particles"></div>
-<div id="moon-3d"></div>
+<div id="loader">
+<h1>Ramadhan Project</h1>
+<p>Loading Memories...</p>
 </div>
 
+<!-- ================= SPACE ================= -->
 
-<!-- ======================
-FLOATING ORNAMENTS
-====================== -->
+<div id="universe">
+<canvas id="stars"></canvas>
+<div id="moon"></div>
+</div>
 
-<div id="ornament-container"></div>
-<div id="love-container"></div>
+<!-- ================= HERO ================= -->
 
+<section>
 
-<!-- ======================
-SECTION 1 HERO
-====================== -->
-
-<section class="scene hero">
-
-<div class="hero-content">
-
-<h1 class="title">
-Selamat Datang Ramadhan
+<h1>
+Selamat Datang Ramadhan<br>
+Untuk Regita Septiana Andini
 </h1>
 
-<h2 class="subtitle">
-Untuk Regita Septiana Andini
-</h2>
-
-<div class="scroll-guide">
-<span></span>
-<p>Scroll Kebawah</p>
-</div>
-
+<div class="scroll">
+⬇ Scroll Kebawah
 </div>
 
 </section>
 
+<!-- ================= LETTER ================= -->
 
-<!-- ======================
-SECTION 2 MESSAGE
-====================== -->
+<section>
 
-<section class="scene message">
-
-<div class="glass-card">
-
-<p>
-Selamat menunaikan ibadah Ramadhan 🌙
-<br><br>
-Semoga setiap harimu dipenuhi
-ketenangan, kebahagiaan,
-dan keberkahan tanpa akhir.
-<br><br>
-Maaf untuk semua masa lalu,
-semoga Ramadhan ini menjadi
-awal cerita yang lebih indah.
-</p>
-
+<div class="card">
+<p id="typing"></p>
 </div>
 
 </section>
 
+<!-- ================= GALLERY ================= -->
 
-<!-- ======================
-SECTION 3 MEMORY
-====================== -->
+<section>
 
-<section class="scene gallery">
-
-<h1>Kenangan Kita</h1>
-
-<div class="gallery-grid">
+<div class="slider">
 
 <img src="assets/photo1.jpg">
 <img src="assets/photo2.jpg">
@@ -99,32 +261,143 @@ SECTION 3 MEMORY
 
 </div>
 
-<video controls>
-<source src="assets/video.mp4">
-</video>
-
 </section>
 
+<!-- ================= END ================= -->
 
-<!-- ======================
-SECTION 4 FINAL
-====================== -->
+<section>
 
-<section class="scene ending">
-
-<h1 class="big-ending">
+<div class="big">
 Selamat Berpuasa 🤍
-</h1>
+</div>
 
-<p class="small-ending">
+<p>
 (maaf ya telat,
-aku buat ini 2 mingguan soalnya hehe)
+aku buat ini 2 mingguan hehe)
 </p>
 
 </section>
 
+<!-- ================= MUSIC ================= -->
 
-<script src="script.js"></script>
+<audio id="music" loop>
+<source src="assets/music.mp3">
+</audio>
+
+<script>
+
+/* ================= LOADER ================= */
+
+setTimeout(()=>{
+document.getElementById("loader")
+.classList.add("hide");
+},2500);
+
+/* ================= STAR ENGINE ================= */
+
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let stars=[];
+
+for(let i=0;i<180;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*1.5
+});
+}
+
+function animateStars(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fillStyle="white";
+ctx.fill();
+
+s.y+=0.2;
+if(s.y>canvas.height)s.y=0;
+});
+
+requestAnimationFrame(animateStars);
+}
+
+animateStars();
+
+/* ================= 3D MOON ROTATE ================= */
+
+let rot=0;
+
+function moonRotate(){
+
+rot+=0.2;
+
+document.getElementById("moon")
+.style.transform=
+`rotate(${rot}deg)`;
+
+requestAnimationFrame(moonRotate);
+}
+
+moonRotate();
+
+/* ================= MUSIC START ================= */
+
+document.body.addEventListener(
+"click",
+()=>{
+document.getElementById("music").play();
+},
+{once:true}
+);
+
+/* ================= TYPING ================= */
+
+const msg=
+"Selamat menjalankan ibadah Ramadhan. Semoga setiap langkahmu dipenuhi ketenangan, kebahagiaan, dan keberkahan. Maaf untuk semua masa lalu, dan terima kasih untuk semua kenangan yang pernah ada.";
+
+let i=0;
+
+function type(){
+
+if(i<msg.length){
+document.getElementById("typing")
+.innerHTML+=msg.charAt(i);
+i++;
+setTimeout(type,35);
+}
+
+}
+
+setTimeout(type,3000);
+
+/* ================= SLIDER ================= */
+
+const slides=document.querySelectorAll(".slider img");
+
+let index=0;
+
+function slide(){
+
+slides.forEach(s=>s.classList.remove("active"));
+
+slides[index].classList.add("active");
+
+index++;
+if(index>=slides.length)index=0;
+
+}
+
+slide();
+setInterval(slide,4000);
+
+</script>
 
 </body>
 </html>
