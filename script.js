@@ -1,66 +1,25 @@
-let scenes=document.querySelectorAll(".scene");
-let index=0;
-
-function show(){
-scenes.forEach(s=>s.classList.remove("active"));
-scenes[index].classList.add("active");
-}
-
-function openLetter(){
-index=1;
-show();
+/* MUSIC AUTOPLAY SAFE */
+document.body.addEventListener("click",()=>{
 document.getElementById("music").play();
+},{once:true});
+
+/* SCROLL REVEAL */
+const reveals=document.querySelectorAll(".reveal");
+
+function reveal(){
+reveals.forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+el.classList.add("active");
+}
+});
 }
 
-function next(){
-if(index<scenes.length-1){
-index++;
-show();
-}
-}
+window.addEventListener("scroll",reveal);
+reveal();
 
-function prev(){
-if(index>0){
-index--;
-show();
-}
-
-/* TYPING */
-const text=`Selamat menunaikan ibadah Ramadhan.
-
-Semoga setiap langkahmu
-dipenuhi ketenangan.
-
-Jika pernah ada salah,
-maafkan aku atas semua masa lalu.
-
-Terima kasih pernah hadir
-di cerita hidupku.`;
-
-let i=0;
-const el=document.getElementById("typing");
-
-function typing(){
-if(i<text.length){
-el.innerHTML+=text.charAt(i);
-i++;
-setTimeout(typing,30);
-}
-}
-typing();
-
-/* FOTO */
-let foto=1;
-const slider=document.getElementById("slider");
-
-setInterval(()=>{
-foto++;
-if(foto>49)foto=1;
-slider.src=`assets/foto (${foto}).jpg`;
-},2500);
-
-/* STAR FIELD */
-const canvas=document.getElementById("space");
+/* STARS */
+const canvas=document.getElementById("stars");
 const ctx=canvas.getContext("2d");
 
 canvas.width=innerWidth;
@@ -81,10 +40,30 @@ ctx.clearRect(0,0,canvas.width,canvas.height);
 stars.forEach(star=>{
 ctx.fillStyle="white";
 ctx.fillRect(star.x,star.y,star.s,star.s);
-star.y+=0.4;
+star.y+=0.2;
 if(star.y>canvas.height)star.y=0;
 });
 
 requestAnimationFrame(animate);
 }
 animate();
+
+/* LOVE FALL */
+setInterval(()=>{
+let love=document.createElement("div");
+love.innerHTML="🤍";
+love.style.position="fixed";
+love.style.left=Math.random()*100+"%";
+love.style.top="-20px";
+love.style.animation="fall 6s linear";
+document.body.appendChild(love);
+
+setTimeout(()=>love.remove(),6000);
+},800);
+
+const style=document.createElement("style");
+style.innerHTML=`
+@keyframes fall{
+to{transform:translateY(110vh);opacity:0;}
+}`;
+document.head.appendChild(style);

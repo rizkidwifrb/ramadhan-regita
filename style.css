@@ -1,102 +1,101 @@
 body{
 margin:0;
-overflow:hidden;
 background:#020617;
 color:white;
 font-family:serif;
+overflow-x:hidden;
 }
 
-/* BACKGROUND FIX */
-#space,
-.moon{
-pointer-events:none;
-position:fixed;
-}
-
-/* CANVAS */
-#space{
-width:100%;
-height:100%;
-z-index:0;
-}
-
-/* MOON */
-.moon{
-right:80px;
-top:60px;
-width:140px;
-height:140px;
-border-radius:50%;
-background:radial-gradient(circle,#fff,#bbb,#333);
-box-shadow:
-0 0 60px white,
-0 0 150px rgba(255,255,255,.5);
-animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-50%{transform:translateY(-15px);}
-}
-
-/* SCENE */
-.scene{
-position:absolute;
-width:100%;
-height:100vh;
+/* SECTION */
+.section{
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-opacity:0;
-transition:1.5s;
-z-index:2;
+text-align:center;
+padding:40px;
 }
 
-.scene.active{
-opacity:1;
+/* MOON */
+.moon{
+position:fixed;
+top:80px;
+right:80px;
+width:150px;
+height:150px;
+border-radius:50%;
+background:radial-gradient(circle,#fff,#aaa,#333);
+box-shadow:
+0 0 80px white,
+0 0 200px rgba(255,255,255,.5);
+animation:float 6s infinite ease-in-out;
+pointer-events:none;
 }
 
-/* BUTTON */
-.openBtn{
-margin-top:25px;
-padding:15px 40px;
-font-size:18px;
-background:white;
-border:none;
-border-radius:30px;
-cursor:pointer;
-transition:.3s;
+@keyframes float{
+50%{transform:translateY(-20px);}
 }
 
-.openBtn:hover{
-transform:scale(1.1);
+/* SCROLL TEXT */
+.scroll-indicator{
+position:fixed;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+animation:scrollAnim 2s infinite;
+opacity:.7;
+}
+
+@keyframes scrollAnim{
+50%{transform:translate(-50%,10px);}
 }
 
 /* LETTER */
 .letter{
-max-width:650px;
+max-width:700px;
 font-size:22px;
-text-align:center;
 line-height:1.8;
 }
 
-/* NAV */
-.nav{
-position:absolute;
-bottom:40px;
-width:80%;
-display:flex;
-justify-content:space-between;
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-/* MEDIA */
-#slider,video{
-width:340px;
+.gallery img{
+width:100%;
 border-radius:12px;
-margin:10px;
+transform:scale(.9);
+transition:1s;
 }
 
+.gallery img:hover{
+transform:scale(1);
+}
+
+/* VIDEO */
+video{
+width:80%;
+border-radius:15px;
+}
+
+/* END */
 .ending h1{
-font-size:65px;
+font-size:60px;
 text-shadow:0 0 30px white;
+}
+
+/* REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(80px);
+transition:1.2s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ramadhan Untuk Regita</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,56 +14,56 @@
 <source src="assets/music.mp3">
 </audio>
 
-<!-- SPACE -->
-<canvas id="space"></canvas>
+<canvas id="stars"></canvas>
 <div class="moon"></div>
 
-<!-- SCENE 1 -->
-<section class="scene active">
+<div class="scroll-indicator">
+Scroll ↓
+</div>
 
-<h1 class="title">Selamat Datang Ramadhan</h1>
+<!-- HERO -->
+<section class="section hero reveal">
+<h1>Selamat Datang Ramadhan</h1>
 <h2>Untuk Regita Septiana Andini</h2>
-
-<button class="openBtn" onclick="openLetter()">
-OPEN
-</button>
-
 </section>
 
-<!-- SCENE 2 -->
-<section class="scene">
-
+<!-- LETTER -->
+<section class="section reveal">
 <div class="letter">
-<p id="typing"></p>
-</div>
+<p>
+Selamat menunaikan ibadah Ramadhan.
 
-<div class="nav">
-<button onclick="prev()">Kembali</button>
-<button onclick="next()">Lanjut</button>
-</div>
+Semoga semua lelahmu diganti tenang,
+semua sedihmu diganti bahagia,
+dan setiap doa yang kamu simpan diam-diam,
+Allah kabulkan satu per satu.
 
+Terima kasih pernah hadir
+di banyak cerita hidupku.
+</p>
+</div>
 </section>
 
-<!-- SCENE 3 -->
-<section class="scene">
+<!-- GALERI -->
+<section class="section gallery reveal">
+<img src="assets/foto (1).jpg">
+<img src="assets/foto (2).jpg">
+<img src="assets/foto (3).jpg">
+<img src="assets/foto (4).jpg">
+<img src="assets/foto (5).jpg">
+</section>
 
-<img id="slider">
-
-<video autoplay muted loop>
+<!-- VIDEO -->
+<section class="section reveal">
+<video controls>
 <source src="assets/video.mp4">
 </video>
-
-<div class="nav">
-<button onclick="prev()">Kembali</button>
-<button onclick="next()">Lanjut</button>
-</div>
-
 </section>
 
-<!-- SCENE 4 -->
-<section class="scene ending">
-<h1>Selamat Berpuasa</h1>
-<p>maaf ya telat, aku buat ini hampir 2 mingguan hehe 🤍</p>
+<!-- END -->
+<section class="section ending reveal">
+<h1>Selamat Berpuasa 🤍</h1>
+<p>maaf ya telat, aku buat ini hampir 2 mingguan hehe</p>
 </section>
 
 <script src="script.js"></script>
