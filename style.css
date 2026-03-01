@@ -1,40 +1,75 @@
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    height: 100vh;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+body{
+margin:0;
+height:100vh;
+background:#020412;
+overflow:hidden;
+font-family:Poppins;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-.container {
-    text-align: center;
-    background: rgba(255,255,255,0.05);
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 40px rgba(0,0,0,0.4);
-    max-width: 500px;
+/* Stars */
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moveStars 60s linear infinite;
 }
 
-h1 {
-    font-size: 40px;
+@keyframes moveStars{
+from{background-position:0 0;}
+to{background-position:10000px 5000px;}
 }
 
-#message {
-    opacity: 0;
-    transition: 2s;
+/* Moon */
+.moon{
+position:absolute;
+top:80px;
+right:100px;
+width:120px;
+height:120px;
+background:radial-gradient(circle,#fff,#ddd,#aaa);
+border-radius:50%;
+box-shadow:0 0 60px white;
 }
 
-button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 30px;
-    background: gold;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
+/* Envelope */
+.envelope{
+width:320px;
+height:200px;
+background:#111;
+border-radius:15px;
+cursor:pointer;
+transition:1s;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.letter{
+opacity:0;
+padding:20px;
+text-align:center;
+transition:2s;
+}
+
+.photo{
+width:100%;
+border-radius:15px;
+margin-top:15px;
+}
+
+@media(max-width:600px){
+.moon{
+right:20px;
+width:80px;
+height:80px;
+}
+
+.envelope{
+width:90%;
+}
 }
