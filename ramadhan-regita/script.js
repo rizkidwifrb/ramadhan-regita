@@ -1,21 +1,53 @@
-const text =
-"Selamat menunaikan ibadah Ramadhan.\nSemoga hatimu selalu tenang,\ndan bahagia di setiap langkah.\n\nMaaf untuk semua masa lalu.";
+/* COUNTDOWN RAMADHAN */
 
-let i = 0;
+const ramadhan =
+new Date("March 1, 2026 00:00:00").getTime();
 
-function typeWriter(){
-if(i < text.length){
-document.getElementById("typing").innerHTML += text.charAt(i);
-i++;
-setTimeout(typeWriter,40);
+setInterval(()=>{
+
+let now=new Date().getTime();
+let gap=ramadhan-now;
+
+let d=Math.floor(gap/(1000*60*60*24));
+let h=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+let m=Math.floor((gap%(1000*60*60))/(1000*60));
+let s=Math.floor((gap%(1000*60))/1000);
+
+document.getElementById("timer").innerHTML=
+`${d} Hari ${h} Jam ${m} Menit ${s} Detik`;
+
+},1000);
+
+
+/* AUTO LOAD FOTO image (1) - image (49) */
+
+const gallery=document.getElementById("gallery");
+
+for(let i=1;i<=49;i++){
+
+let img=document.createElement("img");
+img.src=`assets/image (${i}).jpg`;
+
+gallery.appendChild(img);
+
 }
+
+
+/* EFEK DOA JATUH */
+
+function light(){
+
+const el=document.createElement("div");
+el.className="light";
+
+el.style.left=Math.random()*100+"vw";
+el.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(el);
+
+setTimeout(()=>el.remove(),5000);
+
 }
 
-function openLetter(){
-
-document.querySelector(".letter").style.opacity=1;
-
-document.getElementById("music").play();
-
-typeWriter();
-}
+setInterval(light,150);
